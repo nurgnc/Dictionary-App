@@ -1,15 +1,6 @@
-import { Container, Grid, ThemeProvider } from "@material-ui/core";
-import { createTheme } from "@material-ui/core/styles";
+import { Container, Grid } from "@material-ui/core";
 
 function Navbar() {
-  const darkTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-      },
-      type: "dark",
-    },
-  });
   return (
     <div className="navbar">
       <Container maxWidth="lg">
@@ -19,9 +10,7 @@ function Navbar() {
           justifyContent="space-between"
           alignItems="center"
         >
-          <ThemeProvider theme={darkTheme}>
-            <div>Dict</div>
-          </ThemeProvider>
+          <div>Dict</div>
         </Grid>
       </Container>
     </div>

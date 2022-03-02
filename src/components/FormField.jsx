@@ -1,6 +1,8 @@
-import { Container, Grid, TextField } from "@material-ui/core";
+import { Container, Grid, TextField, MenuItem } from "@material-ui/core";
+import languages from "../data/languages";
 
-function FormField() {
+function FormField({ language, setLanguage, word, setWord }) {
+  console.log(word);
   return (
     <div className="form-field">
       <Container maxWidth="lg">
@@ -10,24 +12,26 @@ function FormField() {
           justifyContent="space-between"
           alignItems="center"
         >
-          <div className="theme-button">
-            <TextField id="standard-basic" label="Standard" />
-          </div>
-          <div>
-            <TextField
-              select
-              label="Language"
-              value={category}
-              onChange={(e) => handleChange(e)}
-              className="select"
-            >
-              {countries.map((option) => (
-                <MenuItem key={option.label} value={option.label}>
-                  {option.value}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
+          <TextField
+            id="standard-basic"
+            label="Search a word"
+            className="search"
+            value={word}
+            onChange={(e) => setWord(e.target.value)}
+          />
+          <TextField
+            select
+            label="Language"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="select"
+          >
+            {languages.map((option) => (
+              <MenuItem key={option.label} value={option.label}>
+                {option.value}
+              </MenuItem>
+            ))}
+          </TextField>
         </Grid>
       </Container>
     </div>
